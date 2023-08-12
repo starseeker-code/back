@@ -12,8 +12,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    #allow_origins=origins,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -23,6 +22,7 @@ app.add_middleware(
 async def get_date():
     now = datetime.now()
     if now:
+        print(now)
         return {"date": str(now)}  # JSON with the info
     else:
         raise HTTPException(status_code=404, detail="No date stored")
