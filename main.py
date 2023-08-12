@@ -1,8 +1,22 @@
 from fastapi import FastAPI, HTTPException
 from datetime import datetime
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "http://localhost:8081",
+    "https://front-back--sparkly-medovik-2a690d.netlify.app/"
+]
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/date")
 async def get_date():
