@@ -5,14 +5,15 @@ from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
     "http://localhost:8081",
-    "https://front-back--sparkly-medovik-2a690d.netlify.app/"
+    "https://front-back--sparkly-medovik-2a690d.netlify.app"
 ]
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    #allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
