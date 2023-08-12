@@ -1,0 +1,4 @@
+fastapi==0.101.0
+sqlalchemy==2.0.19
+databases==0.7.0 
+uvicorn==0.23.2

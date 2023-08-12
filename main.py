@@ -53,3 +53,8 @@ async def get_date():
         return {"date": record.date}  # JSON con la info
     else:
         raise HTTPException(status_code=404, detail="No date stored")
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run("main:app", host="127.0.0.1", port=8081, reload=True)
